@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/session_flow_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.session.SessionFlowActivity"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- fillViewport + layout_height match_parent + gravity center_vertical: ScrollView estende
+         il figlio diretto all'altezza della viewport SOLO se il suo layout_height non e'
+         wrap_content (per questo qui e' match_parent, non wrap_content). Una volta esteso, il
+         "gravity" (non layout_gravity: qui serve centrare i FIGLI di questo LinearLayout dentro
+         se stesso, non lui dentro lo ScrollView) centra verticalmente i due step quando il
+         contenuto e' piu' basso della viewport (es. solo lo STEP 1 visibile), invece di lasciarli
+         ancorati in alto con un vuoto enorme sotto. Quando il contenuto cresce oltre la viewport
+         (STEP 2 visibile, o schermi piccoli) torna a scorrere normalmente. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Registrazione attiva: il telefono sta registrando dal microfono interno, l'utente
+             deve parlare/vocalizzare ORA. Pallino rosso + testo specifico per vocale/parlato
+             (impostato da SessionFlowActivity.startRecordingActivePhase). Tutti i pulsanti
+             restano disabilitati durante la registrazione TRANNE "Annulla e ripeti" del passo
+             in corso, che resta cliccabile per poter annullare subito. Niente piu' fase di
+             attesa separata (col microfono interno non c'e' trasferimento dati: finita la
+             registrazione i campioni sono gia' pronti). -->
+        <LinearLayout
+            android:id="@+id/layout_recording_active"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <View
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/dot_recording_active" />
+
+            <TextView
+                android:id="@+id/text_recording_active"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- STEP 1: vocale sostenuta -->
+        <LinearLayout
+            android:id="@+id/layout_step_vowel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="@string/step1_title" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="16sp"
+                android:text="@string/step1_instruction" />
+
+            <TextView
+                android:id="@+id/text_status_vowel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/status_waiting" />
+
+            <!-- Conto alla rovescia prima della vocale: l'istruzione resta visibile insieme al
+                 numero per tutta la durata (l'utente deve gia' stare vocalizzando quando parte
+                 la registrazione vera, non solo all'ultimo istante). Nascosto finche' non si
+                 avvia la registrazione. -->
+            <TextView
+                android:id="@+id/text_countdown_vowel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/button_record_vowel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/button_start_recording" />
+
+            <Button
+                android:id="@+id/button_retry_vowel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/button_retry"
+                android:visibility="gone" />
+
+            <!-- Riascolto (permanente, non debug): disabilitato finche' non c'e' una
+                 registrazione, si attiva dopo (vedi onVowelRecorded/resetVowelStep). -->
+            <Button
+                android:id="@+id/button_playback_vowel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/button_playback"
+                android:enabled="false" />
+
+            <Button
+                android:id="@+id/button_continue_to_speech"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/button_continue"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <!-- STEP 2: parlato connesso -->
+        <LinearLayout
+            android:id="@+id/layout_step_speech"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="@string/step2_title" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="16sp"
+                android:text="@string/step2_instruction" />
+
+            <TextView
+                android:id="@+id/text_status_speech"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/status_waiting" />
+
+            <!-- Conto alla rovescia prima del parlato: qui meno critico che per la vocale (non
+                 serve che l'utente stia gia' parlando in anticipo), quindi e' una sequenza
+                 3, 2, 1, "Parla liberamente" invece di un'istruzione persistente col numero. -->
+            <TextView
+                android:id="@+id/text_countdown_speech"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/button_record_speech"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/button_start_recording" />
+
+            <Button
+                android:id="@+id/button_retry_speech"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/button_retry"
+                android:visibility="gone" />
+
+            <!-- Riascolto (permanente, non debug): vedi commento analogo su button_playback_vowel. -->
+            <Button
+                android:id="@+id/button_playback_speech"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/button_playback"
+                android:enabled="false" />
+
+            <Button
+                android:id="@+id/button_save_session"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/button_save_session"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

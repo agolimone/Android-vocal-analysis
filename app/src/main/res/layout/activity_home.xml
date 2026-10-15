@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:paddingTop="40dp"
+    tools:context=".ui.home.HomeActivity"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/text_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:textSize="24sp"
+        android:text="@string/text_welcome" />
+
+    <Button
+        android:id="@+id/button_new_session"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/section_new_session" />
+
+    <Button
+        android:id="@+id/button_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/section_history" />
+
+    <Button
+        android:id="@+id/button_stats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/section_stats" />
+
+    <Button
+        android:id="@+id/button_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/button_info_home" />
+
+    <!-- Colore diverso dagli altri bottoni: e' un aiuto/guida, non un'azione principale. -->
+    <Button
+        android:id="@+id/button_guide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/guide_button_background"
+        android:textColor="@color/white"
+        android:text="@string/button_guide" />
+
+    <Button
+        android:id="@+id/button_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/button_logout" />
+
+</LinearLayout>

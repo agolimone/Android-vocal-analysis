@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pallino rosso: indicatore di "registrazione attiva" (fase 1 in SessionFlowActivity),
+     visivamente diverso dal ProgressBar di attesa (fase 2), cosi' e' chiaro a colpo d'occhio
+     se e' il momento di parlare o di aspettare. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#E53935" />
+</shape>

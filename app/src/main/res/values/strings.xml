@@ -1,0 +1,154 @@
+<resources>
+    <string name="app_name">Progetto</string>
+
+    <string name="label_username">Username</string>
+    <string name="label_password">Password</string>
+    <string name="label_email">Email</string>
+    <string name="label_data_nascita">Data di nascita</string>
+    <string name="label_sesso">Sesso</string>
+
+    <string name="button_login">Login</string>
+    <string name="button_register">Registrati</string>
+    <string name="text_go_to_register">Non hai un account? Registrati</string>
+    <string name="text_welcome">Benvenuto, %1$s!</string>
+
+    <string name="section_new_session">Nuova sessione</string>
+    <string name="section_history">Storico sessioni</string>
+    <string name="section_stats">Statistiche / Grafici</string>
+    <string name="button_logout">Logout</string>
+
+
+    <string name="warning_signal_clipped">Segnale saturato: il microfono era troppo vicino o il volume troppo alto. Riprova più lontano o parlando più piano</string>
+
+    <string name="error_empty_fields">Compila tutti i campi obbligatori</string>
+    <string name="error_login_failed">Username o password errati</string>
+    <string name="error_username_taken">Username già in uso</string>
+    <string name="error_select_sesso">Seleziona il sesso</string>
+    <string name="register_success">Registrazione completata</string>
+
+    <string name="sesso_m">M</string>
+    <string name="sesso_f">F</string>
+    <string name="sesso_altro">Altro</string>
+
+    <string name="text_no_sessions">Nessuna sessione registrata</string>
+    <string name="item_session_preview_format">F0: %1$s · Pause: %2$s</string>
+
+    <!-- ============================================================= -->
+    <!-- SessionDetailActivity: dettaglio di una sessione + confronto col baseline -->
+    <!-- ============================================================= -->
+
+    <string name="error_session_not_found">Sessione non trovata</string>
+    <string name="detail_param_format">%1$s: %2$s (%3$s)</string>
+    <string name="detail_param_no_value">%1$s: --</string>
+    <string name="detail_baseline_in_line">in linea con la tua media</string>
+    <string name="detail_baseline_above">più alto del tuo solito</string>
+    <string name="detail_baseline_below">più basso del tuo solito</string>
+    <string name="detail_baseline_insufficient">servono più sessioni per un confronto affidabile</string>
+
+    <string name="step1_title">Passo 1 di 2: vocale sostenuta</string>
+    <string name="step1_instruction">Pronuncia una \"a\" prolungata</string>
+    <string name="step2_title">Passo 2 di 2: parlato connesso</string>
+    <string name="step2_instruction">Leggi una frase, oppure parla liberamente per circa 20 secondi</string>
+
+    <string name="status_waiting">In attesa</string>
+    <string name="status_recording">Registrazione in corso…</string>
+    <string name="status_recorded">Registrazione completata (%1$.1f s)</string>
+
+    <!-- Registrazione attiva (microfono interno): l'utente deve parlare/vocalizzare ORA -
+         vedi SessionFlowActivity.startRecordingActivePhase. -->
+    <string name="recording_active_vowel">Continua a dire \"A\"!</string>
+    <string name="recording_active_speech">Registrazione in corso, parla ora!</string>
+
+    <!-- Conto alla rovescia prima di avviare la registrazione (vedi SessionFlowActivity). -->
+    <string name="countdown_vowel_tick_format">Inizia a dire \"A\" e continua\n\n%1$d</string>
+    <string name="countdown_speech_tick_format">%1$d…</string>
+    <string name="countdown_speech_go">Parla liberamente!</string>
+
+    <string name="button_start_recording">Avvia registrazione</string>
+    <string name="button_retry">Annulla e ripeti</string>
+    <string name="button_continue">Continua</string>
+    <string name="button_save_session">Salva sessione</string>
+    <string name="session_saved">Sessione salvata</string>
+    <string name="error_missing_user">Utente non valido, torna alla home e riprova</string>
+
+    <!-- Riascolto permanente (non debug) e permesso microfono, per la registrazione dal
+         microfono interno (vedi PhoneMicRecorder). -->
+    <string name="button_playback">Riascolta registrazione</string>
+    <string name="error_microphone_permission_denied">Permesso microfono negato: non posso registrare senza accesso al microfono</string>
+    <string name="error_microphone_recording">Registrazione fallita: riprova</string>
+
+    <string name="feature_f0_mean">F0 medio (Hz)</string>
+    <string name="feature_f0_std">Variabilità dell\'intonazione</string>
+    <string name="feature_pause_ratio">Pause ratio</string>
+    <string name="feature_energy_mean">Energia media</string>
+    <string name="feature_energy_std">Variabilità energia</string>
+    <string name="feature_cpp">CPP</string>
+    <string name="feature_jitter">Jitter</string>
+    <string name="feature_shimmer">Shimmer</string>
+    <string name="label_baseline">Media personale</string>
+    <string name="text_no_stats_data">Nessun dato da visualizzare</string>
+    <string name="text_single_session_note">Una sola sessione disponibile: il trend non è ancora significativo</string>
+
+    <!-- ============================================================= -->
+    <!-- InfoActivity: schermata "come leggere i risultati"             -->
+    <!-- ============================================================= -->
+
+    <string name="button_info_home">Come leggere i risultati</string>
+    <string name="button_info_stats">ℹ Informazioni</string>
+
+    <string name="info_title">Come leggere i tuoi risultati</string>
+
+    <string name="info_disclaimer_title">Una premessa importante</string>
+    <string name="info_disclaimer_body">Questa app non è uno strumento diagnostico e non sostituisce il parere di un medico o di uno specialista. Ti aiuta solo a osservare alcuni parametri della tua voce nel tempo, per tua consapevolezza personale. Se hai dubbi o preoccupazioni sul tuo benessere, parlane con un professionista: nessun numero qui dentro può o deve sostituire quel confronto.</string>
+
+    <string name="info_key_concept_title">La cosa più importante da sapere</string>
+    <string name="info_key_concept_body">Il numero da solo dice poco: ogni persona ha una voce diversa per anatomia, età, sesso e abitudini, quindi non esiste un valore \"giusto\" uguale per tutti.\n\nQuello che conta davvero è come i TUOI valori cambiano nel tempo rispetto al tuo solito. Per questo l\'app costruisce una tua media personale (la trovi come linea di riferimento nei grafici) e la confronta con ogni nuova sessione.\n\nNon chiederti \"questo numero è alto o basso?\", ma \"è diverso dal mio solito, e da quando?\"</string>
+
+    <string name="info_f0_title">F0 — l\'altezza della tua voce</string>
+    <string name="info_f0_what"><b>Cos\'è:</b> è l\'intonazione media della tua voce, cioè quanto suona \"acuta\" o \"grave\" quando parli.</string>
+    <string name="info_f0_how"><b>Come interpretarlo:</b> il valore assoluto conta poco, perché dipende molto da anatomia e sesso. Guarda invece se il TUO F0 medio si sposta rispetto al tuo solito: una voce che diventa via via più bassa e piatta rispetto alle sessioni precedenti può accompagnare stanchezza o un umore più giù. Una singola sessione diversa (un giorno di raffreddore, una serata stanca) non significa nulla da sola.</string>
+
+    <string name="info_f0std_title">Variabilità dell\'intonazione</string>
+    <string name="info_f0std_body">Misura quanto la tua voce sale e scende mentre parli — cioè quanto è \'melodica\' invece che piatta. Una voce espressiva, con intonazione varia, ha valori più alti; una voce monotona, piatta, ha valori più bassi. Come per gli altri parametri, conta l\'andamento nel tempo: se la tua intonazione tende a diventare più piatta del tuo solito in modo consistente, può accompagnare stanchezza o un abbassamento del tono dell\'umore. L\'appiattimento dell\'intonazione è uno dei segnali vocali più studiati in relazione all\'umore.</string>
+
+
+    <string name="info_pauseratio_title">Pause ratio — quanto silenzio nel parlato</string>
+    <string name="info_pauseratio_what"><b>Cos\'è:</b> la frazione di tempo che, mentre parli, passi in silenzio invece che a produrre suono.</string>
+    <string name="info_pauseratio_how"><b>Come interpretarlo:</b> pause più lunghe o più frequenti del tuo solito possono accompagnare fatica nel trovare le parole o minore energia nel discorso. Anche qui conta l\'andamento: un pause ratio che sale gradualmente sessione dopo sessione è più interessante di un singolo valore alto isolato, che magari riflette solo un momento in cui stavi pensando a cosa dire.</string>
+
+    <string name="info_energy_title">Energia — il volume della voce</string>
+    <string name="info_energy_what"><b>Cos\'è:</b> quanto è \"forte\" la tua voce in media, e quanto questo volume cambia mentre parli.</string>
+    <string name="info_energy_how"><b>Come interpretarlo:</b> una voce che diventa via via più fioca, con meno variazione di volume rispetto al tuo solito, può accompagnare stanchezza o un tono d\'umore più basso. Il valore assoluto dipende però molto anche da quanto sei vicino al microfono o dal rumore dell\'ambiente in cui registri: guarda soprattutto l\'andamento nel tempo, non il singolo numero.</string>
+
+    <string name="info_cpp_title">CPP (indice di regolarità della voce)</string>
+    <string name="info_cpp_body">Misura quanto la tua voce è chiara, stabile e ben strutturata. Una voce sana e ben sostenuta produce un suono regolare, con un CPP più alto; una voce affaticata, roca o soffiata è meno regolare, con un CPP più basso. Come per gli altri parametri, il valore singolo conta meno del suo andamento: se il tuo CPP tende a scendere in modo consistente rispetto al tuo solito, può accompagnare stanchezza, un abbassamento del tono dell\'umore o uno sforzo vocale — è un segnale da osservare nel tempo, non una diagnosi.</string>
+
+    <string name="info_jittershimmer_title">Jitter e Shimmer</string>
+    <string name="info_jittershimmer_body">Sono due misure della stabilità della voce. Il jitter indica quanto variano, da un ciclo vocale al successivo, i piccoli intervalli di tempo delle vibrazioni delle corde vocali; lo shimmer indica quanto ne varia l\'intensità. Una voce stabile e ben controllata ha valori bassi; valori più alti indicano una voce più irregolare, roca o affaticata. Come per gli altri parametri, conta l\'andamento nel tempo: un aumento consistente rispetto al tuo solito può accompagnare stanchezza o sforzo vocale, più che avere un significato nel valore singolo.</string>
+
+    <string name="info_closing_tip_title">Un consiglio pratico</string>
+    <string name="info_closing_tip_body">Non trarre conclusioni da una sessione isolata: qualche punto fuori dal solito, di tanto in tanto, è del tutto normale. È un cambiamento che dura più giorni o settimane, visibile nel grafico delle Statistiche, a meritare più attenzione. E se qualcosa ti preoccupa davvero, il consiglio resta sempre lo stesso: parlane con un professionista.</string>
+
+    <!-- ============================================================= -->
+    <!-- GuideActivity: schermata "come si usa l'app"                   -->
+    <!-- ============================================================= -->
+
+    <string name="button_guide">Guida / Come si usa</string>
+
+    <string name="guide_title">Come si usa l\'app</string>
+
+    <string name="guide_step1_title">1. Preparati</string>
+    <string name="guide_step1_body">Trovati in un ambiente silenzioso, senza rumori di fondo. Tieni il telefono a una distanza costante dalla bocca durante la registrazione.</string>
+
+    <string name="guide_step2_title">2. Permesso microfono</string>
+    <string name="guide_step2_body">Al primo utilizzo, l\'app ti chiederà il permesso di usare il microfono: concedilo per poter registrare.</string>
+
+    <string name="guide_step3_title">3. La sessione</string>
+    <string name="guide_step3_body">Avvia una nuova sessione. Ti verrà chiesto di pronunciare prima una vocale sostenuta (una \'a\' prolungata) e poi di parlare liberamente per qualche secondo. Un conto alla rovescia ti prepara prima di ogni registrazione.</string>
+
+    <string name="guide_step4_title">4. Verifica</string>
+    <string name="guide_step4_body">Dopo ogni registrazione puoi riascoltarla: se noti rumori o disturbi, usa \'Annulla e ripeti\' per rifarla.</string>
+
+    <string name="guide_tip_title">Un consiglio</string>
+    <string name="guide_tip_body">Per un confronto affidabile nel tempo, registra sempre nelle stesse condizioni: stesso ambiente, stessa distanza dal microfono, voce a volume naturale.</string>
+</resources>

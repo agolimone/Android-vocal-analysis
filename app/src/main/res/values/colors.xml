@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Box disclaimer in InfoActivity: colori fissi (non seguono il tema chiaro/scuro), e'
+         un riquadro di avviso che deve restare riconoscibile allo stesso modo sempre. -->
+    <color name="disclaimer_background">#FFF3E0</color>
+    <color name="disclaimer_text">#5D4037</color>
+
+    <!-- Bottone "Guida" in Home: colore diverso dagli altri, cosi' si riconosce a colpo d'occhio
+         come aiuto/informazione e non come una delle azioni principali. -->
+    <color name="guide_button_background">#00796B</color>
+</resources>

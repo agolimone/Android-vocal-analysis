@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Branch "telefono": acquisizione dal microfono interno (PhoneMicRecorder), in
+         sostituzione dell'Arduino via WiFi. RECORD_AUDIO e' un permesso "pericoloso"
+         (Android 6+): va richiesto anche a runtime, non basta dichiararlo qui
+         (vedi SessionFlowActivity). -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Progetto">
+        <!-- App pensata solo per l'uso verticale (nessun layout alternativo per il landscape
+             da nessuna parte): tutte le Activity sono bloccate in portrait, cosi' una rotazione
+             accidentale del telefono non ricrea mai l'Activity (perdendo lo stato in corso) ne'
+             produce un layout mai pensato per essere largo. Per SessionFlowActivity questo e'
+             necessario, non solo per coerenza: una registrazione dal microfono interno in corso
+             (AudioRecord) verrebbe interrotta a meta' da una ricreazione dell'Activity. -->
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.auth.RegisterActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.session.SessionFlowActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.history.HistoryActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.history.SessionDetailActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.stats.StatsActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.info.InfoActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.guide.GuideActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+    </application>
+
+</manifest>
